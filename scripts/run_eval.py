@@ -153,6 +153,15 @@ def write_comparison_md(results: dict):
                  "pool down to the best 6, corrective relevance grading, and "
                  "parent-section expansion.\n")
 
+    lines.append("## Test questions\n")
+    lines.append("| ID | Category | Question | Gold answer |")
+    lines.append("|---|---|---|---|")
+    for d in details:
+        q = d["question"]
+        gold = q.get("gold", "").replace("|", "/")
+        lines.append(f"| {q['id']} | {q['category']} | {q['question'].replace('|','/')} | {gold} |")
+    lines.append("")
+
     lines.append("## Summary metrics\n")
     lines.append("| Metric | Basic RAG | Advanced RAG |")
     lines.append("|---|---|---|")

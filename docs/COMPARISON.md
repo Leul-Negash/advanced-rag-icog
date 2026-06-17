@@ -6,6 +6,29 @@ Corpus: OpenCog Hyperon / MeTTa / iCog Labs documentation (18 test questions: 15
 
 **Setup.** Both systems share the same corpus, embedding model (`BAAI/bge-small-en-v1.5`), vector store, and generation model, so the comparison isolates the retrieval techniques. *Basic* is the naive baseline: fixed-size chunks, single-query retrieval of the top-3 chunks by cosine similarity, no re-ranking. *Advanced* uses context-aware + hierarchical chunking, query expansion + multi-query with RRF de-duplication, cross-encoder re-ranking of a 12-candidate pool down to the best 6, corrective relevance grading, and parent-section expansion.
 
+## Test questions
+
+| ID | Category | Question | Gold answer |
+|---|---|---|---|
+| Q01 | factual | What does MeTTa stand for? | Meta Type Talk |
+| Q02 | factual | In which city and country is iCog Labs located? | Addis Ababa, Ethiopia |
+| Q03 | factual | What does the acronym MORK stand for? | MeTTa Optimal Reduction Kernel |
+| Q04 | factual | Which minimum version of SWI-Prolog does PeTTa require? | SWI-Prolog 9.3.x or higher |
+| Q05 | paraphrase | Which language is used to read from and write to the knowledge store in Hyperon, replacing the older Atomese? | MeTTa |
+| Q06 | paraphrase | What mechanism decides which pieces of knowledge the system should focus its limited resources on, and how does it model that decision? | ECAN (Economic Attention Networks), which spreads attention values (STI/LTI) using an economic model where attention is a limited currency |
+| Q07 | paraphrase | Whose PhD research are the core ideas behind the MOSES program learner based on? | Moshe Looks (2006 PhD thesis 'Competent Program Evolution') |
+| Q08 | paraphrase | How does the OmegaClaw agent keep memories over long periods of time? | Embedding-based long-term memory stored in the AtomSpace as (timestamp, atom, embedding) triplets, managed with remember/query/episodes/pin operations |
+| Q09 | relationship | The person who founded SingularityNET also co-founded which Ethiopian AI company, and in what city is that company based? | Ben Goertzel founded SingularityNET and co-founded iCog Labs, which is based in Addis Ababa |
+| Q10 | relationship | How are PeTTa and MORK related? | PeTTa uses MORK (via the mork_ffi bindings) to provide high-performance MORK-based atom spaces |
+| Q11 | relationship | metta-moses is written in which MeTTa implementation, and what abstract machine does that implementation run on? | metta-moses is written in MeTTaLog, which runs on the Warren Abstract Machine (WAM) via SWI-Prolog |
+| Q12 | relationship | Which reasoning component draws inferences using the truth values attached to atoms in the AtomSpace? | PLN (Probabilistic Logic Networks) |
+| Q13 | relationship | OmegaClaw keeps its long-term memory in a particular data structure; which high-performance kernel gives that same structure fast, scalable storage, and what does that kernel's name stand for? | OmegaClaw stores its long-term memory in the AtomSpace; MORK, which stands for MeTTa Optimal Reduction Kernel, gives the AtomSpace fast, scalable storage. |
+| Q14 | relationship | metta-moses reimplements an earlier OpenCog program learner; what is that learner called and whose 2006 PhD thesis are its core ideas derived from? | metta-moses reimplements MOSES, whose core ideas are derived from Moshe Looks' 2006 PhD thesis 'Competent Program Evolution'. |
+| Q15 | relationship | PeTTa implements a language whose programs run against a core knowledge store; which kernel accelerates that store for billions of atoms and what does its acronym stand for? | PeTTa implements MeTTa, which operates on the AtomSpace; MORK (MeTTa Optimal Reduction Kernel) accelerates that store so it scales to billions of atoms. |
+| Q16 | unanswerable | How many full-time employees does iCog Labs currently have? | Not stated in the corpus - the system should refuse. |
+| Q17 | unanswerable | What is the current market price of the SingularityNET (AGIX) token? | Not stated in the corpus - the system should refuse. |
+| Q18 | unanswerable | In which exact year was the MeTTa language first officially released to the public? | Not stated in the corpus - the system should refuse. |
+
 ## Summary metrics
 
 | Metric | Basic RAG | Advanced RAG |
