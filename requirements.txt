@@ -1,0 +1,17 @@
+# --- LLM (generation, query expansion, relevance grading) ---
+google-genai>=1.0.0          # Gemini LLM provider (free tier)
+# Groq is also supported via stdlib HTTP (no SDK needed) -- set LLM_PROVIDER=groq
+
+# --- Embeddings & re-ranking (run locally, no API key needed) ---
+sentence-transformers>=3.0.0 # bi-encoder embeddings + cross-encoder re-ranker
+torch>=2.2.0                 # backend for sentence-transformers
+
+# --- Vector database ---
+# A self-contained, persistent NumPy-backed vector store is used (src/vectorstore.py)
+# to keep setup light and fully reproducible -- no external vector-DB service needed.
+# To swap in Chroma/FAISS, only src/vectorstore.py changes.
+
+# --- Utilities ---
+numpy>=1.26
+python-dotenv>=1.0           # load .env
+rich>=13.7                   # readable CLI / evaluation report tables

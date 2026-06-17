@@ -1,0 +1,149 @@
+{
+  "description": "Test set for Basic vs Advanced RAG over the OpenCog/iCog corpus. Covers the four categories required by the assignment: simple factual, different-wording (paraphrase), multi-step/relationship, and answer-unavailable.",
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "factual",
+      "question": "What does MeTTa stand for?",
+      "answerable": true,
+      "gold": "Meta Type Talk",
+      "relevant_docs": ["04_metta_language"]
+    },
+    {
+      "id": "Q02",
+      "category": "factual",
+      "question": "In which city and country is iCog Labs located?",
+      "answerable": true,
+      "gold": "Addis Ababa, Ethiopia",
+      "relevant_docs": ["01_icog_labs"]
+    },
+    {
+      "id": "Q03",
+      "category": "factual",
+      "question": "What does the acronym MORK stand for?",
+      "answerable": true,
+      "gold": "MeTTa Optimal Reduction Kernel",
+      "relevant_docs": ["05_mork"]
+    },
+    {
+      "id": "Q04",
+      "category": "factual",
+      "question": "Which minimum version of SWI-Prolog does PeTTa require?",
+      "answerable": true,
+      "gold": "SWI-Prolog 9.3.x or higher",
+      "relevant_docs": ["06_petta"]
+    },
+    {
+      "id": "Q05",
+      "category": "paraphrase",
+      "question": "Which language is used to read from and write to the knowledge store in Hyperon, replacing the older Atomese?",
+      "answerable": true,
+      "gold": "MeTTa",
+      "relevant_docs": ["04_metta_language", "02_opencog_hyperon", "03_atomspace"]
+    },
+    {
+      "id": "Q06",
+      "category": "paraphrase",
+      "question": "What mechanism decides which pieces of knowledge the system should focus its limited resources on, and how does it model that decision?",
+      "answerable": true,
+      "gold": "ECAN (Economic Attention Networks), which spreads attention values (STI/LTI) using an economic model where attention is a limited currency",
+      "relevant_docs": ["08_pln_ecan"]
+    },
+    {
+      "id": "Q07",
+      "category": "paraphrase",
+      "question": "Whose PhD research are the core ideas behind the MOSES program learner based on?",
+      "answerable": true,
+      "gold": "Moshe Looks (2006 PhD thesis 'Competent Program Evolution')",
+      "relevant_docs": ["07_moses"]
+    },
+    {
+      "id": "Q08",
+      "category": "paraphrase",
+      "question": "How does the OmegaClaw agent keep memories over long periods of time?",
+      "answerable": true,
+      "gold": "Embedding-based long-term memory stored in the AtomSpace as (timestamp, atom, embedding) triplets, managed with remember/query/episodes/pin operations",
+      "relevant_docs": ["09_omegaclaw"]
+    },
+    {
+      "id": "Q09",
+      "category": "relationship",
+      "question": "The person who founded SingularityNET also co-founded which Ethiopian AI company, and in what city is that company based?",
+      "answerable": true,
+      "gold": "Ben Goertzel founded SingularityNET and co-founded iCog Labs, which is based in Addis Ababa",
+      "relevant_docs": ["11_singularitynet", "01_icog_labs"]
+    },
+    {
+      "id": "Q10",
+      "category": "relationship",
+      "question": "How are PeTTa and MORK related?",
+      "answerable": true,
+      "gold": "PeTTa uses MORK (via the mork_ffi bindings) to provide high-performance MORK-based atom spaces",
+      "relevant_docs": ["06_petta", "05_mork"]
+    },
+    {
+      "id": "Q11",
+      "category": "relationship",
+      "question": "metta-moses is written in which MeTTa implementation, and what abstract machine does that implementation run on?",
+      "answerable": true,
+      "gold": "metta-moses is written in MeTTaLog, which runs on the Warren Abstract Machine (WAM) via SWI-Prolog",
+      "relevant_docs": ["07_moses", "10_metta_wam", "04_metta_language"]
+    },
+    {
+      "id": "Q12",
+      "category": "relationship",
+      "question": "Which reasoning component draws inferences using the truth values attached to atoms in the AtomSpace?",
+      "answerable": true,
+      "gold": "PLN (Probabilistic Logic Networks)",
+      "relevant_docs": ["08_pln_ecan", "03_atomspace"]
+    },
+    {
+      "id": "Q13",
+      "category": "relationship",
+      "question": "OmegaClaw keeps its long-term memory in a particular data structure; which high-performance kernel gives that same structure fast, scalable storage, and what does that kernel's name stand for?",
+      "answerable": true,
+      "gold": "OmegaClaw stores its long-term memory in the AtomSpace; MORK, which stands for MeTTa Optimal Reduction Kernel, gives the AtomSpace fast, scalable storage.",
+      "relevant_docs": ["09_omegaclaw", "05_mork"]
+    },
+    {
+      "id": "Q14",
+      "category": "relationship",
+      "question": "metta-moses reimplements an earlier OpenCog program learner; what is that learner called and whose 2006 PhD thesis are its core ideas derived from?",
+      "answerable": true,
+      "gold": "metta-moses reimplements MOSES, whose core ideas are derived from Moshe Looks' 2006 PhD thesis 'Competent Program Evolution'.",
+      "relevant_docs": ["07_moses"]
+    },
+    {
+      "id": "Q15",
+      "category": "relationship",
+      "question": "PeTTa implements a language whose programs run against a core knowledge store; which kernel accelerates that store for billions of atoms and what does its acronym stand for?",
+      "answerable": true,
+      "gold": "PeTTa implements MeTTa, which operates on the AtomSpace; MORK (MeTTa Optimal Reduction Kernel) accelerates that store so it scales to billions of atoms.",
+      "relevant_docs": ["06_petta", "05_mork", "03_atomspace"]
+    },
+    {
+      "id": "Q16",
+      "category": "unanswerable",
+      "question": "How many full-time employees does iCog Labs currently have?",
+      "answerable": false,
+      "gold": "Not stated in the corpus - the system should refuse.",
+      "relevant_docs": []
+    },
+    {
+      "id": "Q17",
+      "category": "unanswerable",
+      "question": "What is the current market price of the SingularityNET (AGIX) token?",
+      "answerable": false,
+      "gold": "Not stated in the corpus - the system should refuse.",
+      "relevant_docs": []
+    },
+    {
+      "id": "Q18",
+      "category": "unanswerable",
+      "question": "In which exact year was the MeTTa language first officially released to the public?",
+      "answerable": false,
+      "gold": "Not stated in the corpus - the system should refuse.",
+      "relevant_docs": []
+    }
+  ]
+}
